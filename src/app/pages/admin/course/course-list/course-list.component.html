@@ -1,0 +1,80 @@
+<div class="main-content">
+    <div class="content-overlay"></div>
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">All Courses !</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <!--To Display Http Status-->
+                            <!-- <div *ngIf="errorResponse" class="alert alert-danger">
+                                <p>{{errorResponse.status}}</p>
+                                <p>{{errorResponse.code}}</p>
+                                <ul>
+                                    <li *ngFor="let error of errorResponse.errors">
+                                      {{ error.errorMessage }}
+                                    </li>
+                                  </ul>
+                            </div> -->
+
+                            <div class="table-container">
+                                <label>Per Page</label>
+                                <select [(ngModel)]="itemsPerPage" (change)="filterData()">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="50">50</option>
+                                </select>
+                                <label>Sort</label>
+                                <select [(ngModel)]="sortDirection" (change)="sortData()">
+                                    <option value="ASC">Assending</option>
+                                    <option value="DESC">Decending</option>                                    
+                                </select>
+                                <input class="text-right" type="text" [(ngModel)]="filterTerm" placeholder="Filter">
+                   
+                                <button (click)="filterData()">Apply Filter</button>
+                                <table class="table" *ngIf="coursePageResponsePagination">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Course Name</th>
+                                        <th>Description</th>
+                                        <th>Create At</th>
+                                        <th>Last Updated At</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    <tr *ngFor="let course of coursePageResponsePagination.courses">
+                                        <td>{{ course.id }}</td>
+                                        <td>{{ course.name }}</td>
+                                        <td> {{ course.description }}</td>
+                                        <td> {{ course.createdAt }}</td>
+                                        <td> {{ course.updatedAt }}</td>
+                                        <td>
+                                           
+                                            <a (click)="sendCourseIdToCourseEditPage(course.id)" [routerLink]="['/admin/course/edit/',course.id]" style="padding: 0 5px;"><i class="fa fa-edit"></i></a>                                      
+                                            <a style="padding: 0 5px;" [routerLink]="[]" (click)="deleteCourse(course.id)"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="pagination">
+                                  <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+                                  <span>Page {{ currentPage }} of {{ totalPages }}</span>
+                                  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+                                  <p> From {{totalItems}} Coures</p>
+                                </div>
+                              </div>
+                              
+                   </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

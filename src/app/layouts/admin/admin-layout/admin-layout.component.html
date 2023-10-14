@@ -1,0 +1,32 @@
+
+    <!-- Navbar (Header) Starts-->
+ <app-admin-header></app-admin-header>
+    <!-- Navbar (Header) Ends-->
+  
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <div class="wrapper">
+  
+  
+        <!-- main menu-->
+        <!--.main-menu(class="#{menuColor} #{menuOpenType}", class=(menuShadow == true ? 'menu-shadow' : ''))-->
+       <app-admin-left-sidebar></app-admin-left-sidebar>
+        <!-- / main menu-->
+  
+        <div class="main-panel">
+            <!-- BEGIN : Main Content-->
+           <router-outlet></router-outlet>
+            <!-- END : End Main Content-->
+  
+            <!-- BEGIN : Footer-->
+            <app-admin-footer></app-admin-footer>
+            <!-- End : Footer-->
+            <!-- Scroll to top button -->
+            <button class="btn btn-primary scroll-top" type="button"><i class="ft-arrow-up"></i></button>
+  
+        </div>
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+  
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+  
